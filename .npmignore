@@ -1,0 +1,8 @@
+# SDK package files
+src
+dist
+package.json
+README.md
+tsconfig.json
+.eslintrc
+.prettierrc
