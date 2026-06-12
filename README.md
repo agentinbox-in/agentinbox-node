@@ -65,9 +65,8 @@ try {
 
 ## Resources
 
-- [API Documentation](https://agenttemp.dev/docs)
-- [MCP Server](https://tempmailai.vercel.app/llms.txt)
-- [Dashboard](https://tempmailai.vercel.app/dashboard)
+- [API Documentation](https://tempmailai.vercel.app/api/v1/openapi.json)
+- [MCP Server](https://github.com/kunalgawade19042002-gif/agenttemp-mcp)
 
 ## License
 
