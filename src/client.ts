@@ -3,7 +3,7 @@ import { createError } from './errors'
 export interface AgentTempClientOptions {
   /** API key (e.g., at_live_... or at_test_...) */
   apiKey: string
-  /** Base URL (default: https://tempmailai.vercel.app/api/v1) */
+  /** Base URL (default: https://agentinbox.in/api/v1) */
   baseUrl?: string
   /** Request timeout in ms (default: 30000) */
   timeoutMs?: number
@@ -19,7 +19,7 @@ export class AgentTempClient {
 
   constructor(options: AgentTempClientOptions) {
     this.apiKey = options.apiKey
-    this.baseUrl = options.baseUrl ?? 'https://tempmailai.vercel.app/api/v1'
+    this.baseUrl = options.baseUrl ?? 'https://agentinbox.in/api/v1'
     this.timeoutMs = options.timeoutMs ?? 30000
     this.retries = options.retries ?? 3
   }
