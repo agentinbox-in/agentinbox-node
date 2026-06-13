@@ -32,7 +32,7 @@ export function createError(data: { code: string; message: string; docs_url?: st
   }
 
   const status = statusMap[data.code] ?? 500
-  const docsUrl = data.docs_url ?? `https://agenttemp.dev/docs/errors#${data.code}`
+  const docsUrl = data.docs_url ?? `https://agentinbox.in/docs/errors#${data.code}`
 
   switch (data.code) {
     case 'unauthorized':
