@@ -66,7 +66,7 @@ try {
 ## Resources
 
 - [API Documentation](https://agentinbox.in/api/v1/openapi.json)
-- [MCP Server](https://github.com/agentinbox-in/agenttemp-mcp)
+- [MCP Server](https://github.com/agentinbox-in/agentinbox-mcp)
 
 ## License
 
