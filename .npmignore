@@ -1,8 +1,8 @@
-# SDK package files
-src
-dist
-package.json
-README.md
-tsconfig.json
-.eslintrc
-.prettierrc
+.env
+.vscode
+.idea
+coverage
+*.test.ts
+__tests__
+*.log
+*.tgz

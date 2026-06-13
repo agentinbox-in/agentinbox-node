@@ -81,6 +81,48 @@ export interface ApiKey {
   createdAt: string
 }
 
+export interface Session {
+  id: string
+  object: 'session'
+  name: string
+  status: string
+  metadata: Record<string, unknown> | null
+  expiresAt: string
+  createdAt: string
+  updatedAt: string
+}
+
+export interface SessionDetailResponse {
+  session: Session
+  inboxes?: Inbox[]
+  waits?: Wait[]
+  messages?: Message[]
+  extractions?: Extraction[]
+  timeline?: unknown[]
+}
+
+export interface WebhookDelivery {
+  id: string
+  object: 'webhook_delivery'
+  webhookId: string
+  eventType: string
+  status: string
+  attempts: number
+  responseStatus: number | null
+  lastError: string | null
+  nextRetryAt: string | null
+  deliveredAt: string | null
+  createdAt: string
+}
+
+export type WebhookEventType =
+  | 'email.received'
+  | 'otp.extracted'
+  | 'magic_link.extracted'
+  | 'password_reset.extracted'
+  | 'wait.completed'
+  | 'inbox.expired'
+
 export interface ListResponse<T> {
   object: 'list'
   data: T[]
@@ -134,4 +176,53 @@ export interface WorkflowSignupOutput {
     emailAddress: string
     useThisEmail: string
   }
+}
+
+export interface CreateSessionInput {
+  name: string
+  ttlSeconds?: number
+  metadata?: Record<string, unknown>
+}
+
+export interface CreateApiKeyInput {
+  name?: string
+  environment: 'live'
+  scope?: string
+}
+
+export interface CreateWebhookInput {
+  name: string
+  endpointUrl: string
+  events: WebhookEventType[]
+}
+
+export interface UpdateWebhookInput {
+  name?: string
+  endpointUrl?: string
+  events?: WebhookEventType[]
+  active?: boolean
+}
+
+export type UsageMetric =
+  | 'inboxes_created'
+  | 'emails_received'
+  | 'api_requests'
+  | 'waits'
+
+export interface UsageMetricItem {
+  metric: UsageMetric
+  count: number
+  limit: number
+  remaining: number
+}
+
+export interface UsageResponse {
+  object: 'usage'
+  plan: string
+  retentionDays: number
+  webhooks: boolean
+  mcp: boolean
+  customDomains: number
+  metrics: UsageMetricItem[]
+  resetAt: string
 }

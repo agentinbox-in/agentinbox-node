@@ -58,15 +58,16 @@ try {
   if (err instanceof QuotaExceededError) {
     console.log('Quota exceeded:', err.limit)
   } else if (err instanceof RateLimitError) {
-    console.log('Rate limited, retry after:', err.retryAfter)
+    console.log('Rate limited:', err.message)
   }
 }
 ```
 
 ## Resources
 
-- [API Documentation](https://agentinbox.in/api/v1/openapi.json)
-- [MCP Server](https://github.com/agentinbox-in/agentinbox-mcp)
+- [API Documentation](https://agentinbox.in/docs)
+- [MCP Server](https://agentinbox.in/llms.txt)
+- [Dashboard](https://agentinbox.in/dashboard)
 
 ## License
 

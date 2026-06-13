@@ -1,5 +1,16 @@
 import type { AgentInboxClient } from '../client'
-import type { CreateWaitInput, ListResponse, Message, MessageSummary, Wait, WorkflowCreateInboxAndWaitInput, WorkflowCreateInboxAndWaitOutput, WorkflowSignupInput, WorkflowSignupOutput } from '../types'
+import type {
+  CreateWaitInput,
+  Extraction,
+  ListResponse,
+  Message,
+  MessageSummary,
+  Wait,
+  WorkflowCreateInboxAndWaitInput,
+  WorkflowCreateInboxAndWaitOutput,
+  WorkflowSignupInput,
+  WorkflowSignupOutput,
+} from '../types'
 
 export class WaitResource {
   constructor(private readonly client: AgentInboxClient) {}
@@ -50,8 +61,9 @@ export class MessageResource {
     return this.client.get<Message>(`/messages/${id}`)
   }
 
-  async extract(id: string): Promise<ListResponse<Extraction>> {
-    return this.client.post<ListResponse<Extraction>>(`/messages/${id}/extract`)
+  async extract(id: string, useLlm?: boolean): Promise<ListResponse<Extraction>> {
+    const query = useLlm === undefined ? '' : `?useLlm=${useLlm}`
+    return this.client.post<ListResponse<Extraction>>(`/messages/${id}/extract${query}`)
   }
 }
 
@@ -66,5 +78,3 @@ export class ExtractionResource {
     return this.client.get<ListResponse<Extraction>>(`/extractions${query ? `?${query}` : ''}`)
   }
 }
-
-import type { Extraction } from '../types'
