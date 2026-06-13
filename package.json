@@ -5,23 +5,33 @@
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "files": [
-    "dist"
-  ],
+  "files": ["dist"],
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
     "test": "vitest run",
     "test:watch": "vitest"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/agentinbox-in/agentinbox-node.git"
+  },
+  "homepage": "https://agentinbox.in/docs/sdk-node",
+  "bugs": {
+    "url": "https://github.com/agentinbox-in/agentinbox-node/issues"
+  },
   "keywords": [
     "AgentInbox",
+    "agentinbox",
     "tempmail",
     "email",
     "verification",
+    "otp",
     "mcp",
     "ai",
-    "agent"
+    "agent",
+    "typescript",
+    "sdk"
   ],
   "author": "AgentInbox",
   "license": "MIT",

@@ -1,6 +1,6 @@
 # AgentInbox SDK
 
-TypeScript SDK for the AgentInbox email verification API.
+Official TypeScript/JavaScript SDK for the [AgentInbox](https://agentinbox.in) email verification API.
 
 ## Installation
 
@@ -66,6 +66,7 @@ try {
 ## Resources
 
 - [API Documentation](https://agentinbox.in/docs)
+- [Node.js SDK Docs](https://agentinbox.in/docs/sdk-node)
 - [MCP Server](https://agentinbox.in/llms.txt)
 - [Dashboard](https://agentinbox.in/dashboard)
 
