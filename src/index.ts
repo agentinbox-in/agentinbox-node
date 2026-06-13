@@ -1,6 +1,6 @@
-export { AgentTempClient } from './client'
-export type { AgentTempClientOptions } from './client'
-export { AgentTempError, UnauthorizedError, RateLimitError, QuotaExceededError, NotFoundError, InvalidRequestError } from './errors'
+export { AgentInboxClient } from './client'
+export type { AgentInboxClientOptions } from './client'
+export { AgentInboxError, UnauthorizedError, RateLimitError, QuotaExceededError, NotFoundError, InvalidRequestError } from './errors'
 export type {
   Inbox,
   Message,

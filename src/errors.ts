@@ -1,24 +1,24 @@
-export class AgentTempError extends Error {
+export class AgentInboxError extends Error {
   readonly code: string
   readonly status: number
   readonly docsUrl: string
 
   constructor(code: string, message: string, status: number, docsUrl: string) {
     super(message)
-    this.name = 'AgentTempError'
+    this.name = 'AgentInboxError'
     this.code = code
     this.status = status
     this.docsUrl = docsUrl
   }
 }
 
-export class UnauthorizedError extends AgentTempError {}
-export class RateLimitError extends AgentTempError {}
-export class QuotaExceededError extends AgentTempError {}
-export class NotFoundError extends AgentTempError {}
-export class InvalidRequestError extends AgentTempError {}
+export class UnauthorizedError extends AgentInboxError {}
+export class RateLimitError extends AgentInboxError {}
+export class QuotaExceededError extends AgentInboxError {}
+export class NotFoundError extends AgentInboxError {}
+export class InvalidRequestError extends AgentInboxError {}
 
-export function createError(data: { code: string; message: string; docs_url?: string }): AgentTempError {
+export function createError(data: { code: string; message: string; docs_url?: string }): AgentInboxError {
   const statusMap: Record<string, number> = {
     unauthorized: 401,
     forbidden: 403,
@@ -46,6 +46,6 @@ export function createError(data: { code: string; message: string; docs_url?: st
     case 'invalid_request':
       return new InvalidRequestError(data.code, data.message, status, docsUrl)
     default:
-      return new AgentTempError(data.code, data.message, status, docsUrl)
+      return new AgentInboxError(data.code, data.message, status, docsUrl)
   }
 }

@@ -1,6 +1,6 @@
 import { createError } from './errors'
 
-export interface AgentTempClientOptions {
+export interface AgentInboxClientOptions {
   /** API key (e.g., at_live_... or at_test_...) */
   apiKey: string
   /** Base URL (default: https://agentinbox.in/api/v1) */
@@ -11,13 +11,13 @@ export interface AgentTempClientOptions {
   retries?: number
 }
 
-export class AgentTempClient {
+export class AgentInboxClient {
   readonly apiKey: string
   readonly baseUrl: string
   readonly timeoutMs: number
   readonly retries: number
 
-  constructor(options: AgentTempClientOptions) {
+  constructor(options: AgentInboxClientOptions) {
     this.apiKey = options.apiKey
     this.baseUrl = options.baseUrl ?? 'https://agentinbox.in/api/v1'
     this.timeoutMs = options.timeoutMs ?? 30000

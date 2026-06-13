@@ -1,23 +1,23 @@
-# AgentTemp SDK
+# AgentInbox SDK
 
-TypeScript SDK for the AgentTemp email verification API.
+TypeScript SDK for the AgentInbox email verification API.
 
 ## Installation
 
 ```bash
-npm install agenttemp
+npm install agentinbox
 # or
-yarn add agenttemp
+yarn add agentinbox
 # or
-pnpm add agenttemp
+pnpm add agentinbox
 ```
 
 ## Quick Start
 
 ```typescript
-import { AgentTempClient } from 'agenttemp'
+import { AgentInboxClient } from 'agentinbox'
 
-const client = new AgentTempClient({
+const client = new AgentInboxClient({
   apiKey: 'at_live_...',
 })
 
@@ -50,7 +50,7 @@ console.log(wait.result?.value)
 ## Error Handling
 
 ```typescript
-import { QuotaExceededError, RateLimitError } from 'agenttemp'
+import { QuotaExceededError, RateLimitError } from 'agentinbox'
 
 try {
   await client.inboxes.create()

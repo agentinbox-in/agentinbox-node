@@ -1,5 +1,5 @@
 {
-  "name": "agenttemp",
+  "name": "agentinbox",
   "version": "0.1.0",
   "description": "Email verification infrastructure for AI agents and test automation",
   "main": "dist/index.js",
@@ -12,8 +12,8 @@
     "test": "vitest run",
     "test:watch": "vitest"
   },
-  "keywords": ["agenttemp", "tempmail", "email", "verification", "mcp", "ai", "agent"],
-  "author": "AgentTemp",
+  "keywords": ["agentinbox", "tempmail", "email", "verification", "mcp", "ai", "agent"],
+  "author": "AgentInbox",
   "license": "MIT",
   "devDependencies": {
     "tsup": "^8.0.0",
