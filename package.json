@@ -1,5 +1,5 @@
 {
-  "name": "agentinbox",
+  "name": "agentinbox.in",
   "version": "0.1.0",
   "description": "Email verification infrastructure for AI agents and test automation",
   "main": "dist/index.js",
