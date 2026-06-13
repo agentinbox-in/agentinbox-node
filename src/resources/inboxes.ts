@@ -1,8 +1,8 @@
-import type { AgentTempClient } from '../client'
+import type { AgentInboxClient } from '../client'
 import type { CreateInboxInput, Inbox, ListResponse } from '../types'
 
 export class InboxResource {
-  constructor(private readonly client: AgentTempClient) {}
+  constructor(private readonly client: AgentInboxClient) {}
 
   async create(input: CreateInboxInput): Promise<Inbox> {
     return this.client.post<Inbox>('/inboxes', input)

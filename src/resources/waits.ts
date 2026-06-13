@@ -1,8 +1,8 @@
-import type { AgentTempClient } from '../client'
+import type { AgentInboxClient } from '../client'
 import type { CreateWaitInput, ListResponse, Message, MessageSummary, Wait, WorkflowCreateInboxAndWaitInput, WorkflowCreateInboxAndWaitOutput, WorkflowSignupInput, WorkflowSignupOutput } from '../types'
 
 export class WaitResource {
-  constructor(private readonly client: AgentTempClient) {}
+  constructor(private readonly client: AgentInboxClient) {}
 
   async create(input: CreateWaitInput): Promise<Wait> {
     return this.client.post<Wait>('/waits', input)
@@ -38,7 +38,7 @@ export class WaitResource {
 }
 
 export class MessageResource {
-  constructor(private readonly client: AgentTempClient) {}
+  constructor(private readonly client: AgentInboxClient) {}
 
   async list(inboxId: string, limit?: number): Promise<ListResponse<MessageSummary>> {
     const params = new URLSearchParams()
@@ -56,7 +56,7 @@ export class MessageResource {
 }
 
 export class ExtractionResource {
-  constructor(private readonly client: AgentTempClient) {}
+  constructor(private readonly client: AgentInboxClient) {}
 
   async list(inboxId?: string, messageId?: string): Promise<ListResponse<Extraction>> {
     const params = new URLSearchParams()
