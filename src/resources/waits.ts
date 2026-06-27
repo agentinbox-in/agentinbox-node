@@ -70,11 +70,10 @@ export class MessageResource {
 export class ExtractionResource {
   constructor(private readonly client: AgentInboxClient) {}
 
-  async list(inboxId?: string, messageId?: string): Promise<ListResponse<Extraction>> {
+  async list(inboxId: string, messageId?: string): Promise<ListResponse<Extraction>> {
     const params = new URLSearchParams()
-    if (inboxId) params.set('inboxId', inboxId)
     if (messageId) params.set('messageId', messageId)
     const query = params.toString()
-    return this.client.get<ListResponse<Extraction>>(`/extractions${query ? `?${query}` : ''}`)
+    return this.client.get<ListResponse<Extraction>>(`/inboxes/${inboxId}/extractions${query ? `?${query}` : ''}`)
   }
 }

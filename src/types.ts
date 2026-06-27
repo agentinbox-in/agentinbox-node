@@ -71,9 +71,9 @@ export interface Webhook {
 export interface ApiKey {
   id: string
   object: 'api_key'
-  name: string
+  name: string | null
   keyPrefix: string
-  environment: string
+  environment: 'live' | 'test'
   scopes: string[]
   lastUsedAt: string | null
   expiresAt: string | null
@@ -87,7 +87,7 @@ export interface Session {
   name: string
   status: string
   metadata: Record<string, unknown> | null
-  expiresAt: string
+  expiresAt: string | null
   createdAt: string
   updatedAt: string
 }
@@ -133,6 +133,7 @@ export interface ListResponse<T> {
 export interface CreateInboxInput {
   ttlSeconds?: number
   purpose?: string
+  sessionId?: string
 }
 
 export interface CreateWaitInput {
@@ -186,7 +187,7 @@ export interface CreateSessionInput {
 
 export interface CreateApiKeyInput {
   name?: string
-  environment: 'live'
+  environment: 'live' | 'test'
   scope?: string
 }
 
@@ -208,6 +209,7 @@ export type UsageMetric =
   | 'emails_received'
   | 'api_requests'
   | 'waits'
+  | 'llm_extractions'
 
 export interface UsageMetricItem {
   metric: UsageMetric
